@@ -14,33 +14,32 @@ form.addEventListener("submit", async (e) => {
         message: form.message.value
     };
 
-    try{
+    try {
 
         const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbxPpdqLVNx9v8I_tIe4n7lnf2AFY2MwGZdHLc6bEDKvQ6GD_0waYU6gi8qBU5vCYXFH/exec",
+            "https://script.google.com/macros/s/AKfycbyxe5b9Yg3rYjWjfUwK9atQcVafSKxfTuyGmoFWsocGFkNkb-gJIASkV6uKPGSOATM/exec",
             {
                 method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify(data)
             }
         );
 
-        if(response.ok){
+        const result = await response.text();
 
-            alert("Application sent successfully!");
+        console.log(result);
 
-            form.reset();
+        alert("Application sent!");
 
-        } else {
-
-            alert("Error sending application");
-
-        }
+        form.reset();
 
     } catch(error){
 
         console.log(error);
 
-        alert("Server error");
+        alert("Error sending form");
 
     }
 
