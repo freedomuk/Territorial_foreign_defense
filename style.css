@@ -4101,3 +4101,16 @@ font-size:70px;
 
 }
 
+
+.patch-content img {
+    width: 400px;
+    height: auto;
+}
+
+/* Телефон */
+@media (max-width: 768px) {
+    .patch-content img {
+        width: 200px;
+        height: auto;
+    }
+}
